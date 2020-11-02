@@ -14,7 +14,7 @@ namespace Domain.Data
             {
                 var users = new List<User>
                 {
-                     new User { UserName="zviki", PasswordHash="asdasd123", PhoneNumber = "599522728", PhoneNumberConfirmed =true, EmailConfirmed = true },
+                     new User { UserName="zviki", PasswordHash="asdasd123", PhoneNumber = "599522728", PhoneNumberConfirmed =true, EmailConfirmed = true, Balance = 999999 },
                 };
                 var _userManager = serviceProvider.GetRequiredService<UserManager<User>>();
                 foreach (var user in users)

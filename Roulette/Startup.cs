@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Roulette.Helpers;
 using ServiceModels;
+using Services.HostedServices;
 using Services.Implementations;
 using Services.ServiceInterfaces;
 using Services.SignalrHubs;
@@ -74,7 +75,7 @@ namespace Roulette
             services.AddScoped<IRoundService, RoundService>();
             services.AddScoped<IJackpotService, JackpotService>();
             services.AddSignalR();
-            //services.AddHostedService<JackpotHostedService>();
+            services.AddHostedService<JackpotHostedService>();
 
         }
 
@@ -111,10 +112,6 @@ namespace Roulette
             app.UseAuthentication();
 
             app.UseAuthorization();
-
-            app.UseGlobalTokenMiddleware();
-
-            app.UseGlobalTokenMiddleware();
 
             app.UseEndpoints(endpoints =>
             {

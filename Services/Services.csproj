@@ -16,7 +16,8 @@
 
   <ItemGroup>
     <Reference Include="ge.singular.roulette">
-      <HintPath>..\..\..\..\Desktop\NET Task\ge.singular.roulette.dll</HintPath>
+      <HintPath>D:\NET Task\ge.singular.roulette.dll</HintPath>
+      <Private>true</Private>
     </Reference>
   </ItemGroup>
 

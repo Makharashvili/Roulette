@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Api.Helpers;
+﻿using Api.Helpers;
 using Common.Enums;
 using Domain.Data;
 using Microsoft.AspNetCore.Authorization;
@@ -13,6 +8,9 @@ using ServiceModels;
 using ServiceModels.RoundModels;
 using ServiceModels.UserModels;
 using Services.ServiceInterfaces;
+using System;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Roulette.Controllers
 {
@@ -69,7 +67,7 @@ namespace Roulette.Controllers
         [HttpGet("history")]
         public UserHistoryResponseModel History()
         {
-            //same comment as on 62nd line
+            //same comment as on 63rd line
             return _userService.GetUserHistory(UserId.Value);
         }
         

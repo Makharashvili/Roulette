@@ -1,6 +1,5 @@
 ﻿using Common.Enums;
 using Domain.Data;
-using Microsoft.VisualBasic;
 using ServiceModels;
 using ServiceModels.JackpotModels;
 using Services.ServiceInterfaces;
@@ -20,7 +19,7 @@ namespace Services.Implementations
         public JackpotModel GetJackpot()
         {
             // last jackpot entity which is not deleted seems legit to use
-            var jackpot = _dbContext.Jackpots.LastOrDefault(x => x.DeleteDate == null);
+            var jackpot = _dbContext.Jackpots.OrderByDescending(x=> x.Id).FirstOrDefault(x => x.DeleteDate == null);
             if (jackpot == null)
             {
                 return new JackpotModel
@@ -43,7 +42,8 @@ namespace Services.Implementations
 
         public BaseResponseModel IncreaseJackpot(long amountToIncrease)
         {
-            var jackpot = _dbContext.Jackpots.LastOrDefault(x => x.DeleteDate == null);
+            // _dbContext.Jackpots.FirstOrDefault(x => x.DeleteDate == null) this one could not be translated into query so ...
+            var jackpot = _dbContext.Jackpots.OrderByDescending(x=> x.Id).FirstOrDefault(x => x.DeleteDate == null);
 
             if (jackpot == null)
             {
