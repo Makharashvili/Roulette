@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="SingularRoulette\ge.singular.roulette.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="3.1.9" />
   </ItemGroup>
@@ -16,9 +20,18 @@
 
   <ItemGroup>
     <Reference Include="ge.singular.roulette">
-      <HintPath>D:\NET Task\ge.singular.roulette.dll</HintPath>
-      <Private>true</Private>
+      <HintPath>SingularRoulette\ge.singular.roulette.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="SingularRoulette\ge.singular.roulette.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="SignalrHubs\ServiceHub.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
   </ItemGroup>
 
 </Project>
